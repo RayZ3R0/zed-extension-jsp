@@ -1,6 +1,6 @@
-# Zed Svelte
+# Zed JSP
 
-A [Svelte](https://svelte.dev) extension for [Zed](https://zed.dev).
+A JSP extension for [Zed](https://zed.dev).
 
 ## Development
 

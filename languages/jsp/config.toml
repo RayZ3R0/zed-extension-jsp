@@ -1,0 +1,55 @@
+name = "JSP"
+grammar = "html" # Use the HTML grammar
+path_suffixes = ["jsp", "jspf", "tag"]
+block_comment = ["<%-- ", " --%>"]
+line_comments = ["// ", "<!-- ", "<%-- "]
+autoclose_before = ":\"'}]>%"
+brackets = [
+    { start = "{", end = "}", close = true, newline = true },
+    { start = ">", end = "</", close = false, newline = true, not_in = [
+        "comment",
+        "string",
+    ] },
+    { start = "<", end = ">", close = false, newline = true, not_in = [
+        "comment",
+        "string",
+    ] },
+    { start = "[", end = "]", close = true, newline = true },
+    { start = "(", end = ")", close = true, newline = true },
+    { start = "<%", end = "%>", close = true, newline = true, not_in = [
+        "comment",
+        "string",
+    ] },
+    { start = "<%=", end = "%>", close = true, newline = true, not_in = [
+        "comment",
+        "string",
+    ] },
+    { start = "<%!", end = "%>", close = true, newline = true, not_in = [
+        "comment",
+        "string",
+    ] },
+    { start = "<%@", end = "%>", close = true, newline = true, not_in = [
+        "comment",
+        "string",
+    ] },
+    { start = "<%--", end = "--%>", close = true, newline = true },
+    { start = "<!-- ", end = " -->", close = true, newline = true },
+    { start = "\"", end = "\"", close = true, newline = true, not_in = [
+        "string",
+    ] },
+    { start = "'", end = "'", close = true, newline = true, not_in = [
+        "string",
+    ] },
+    { start = "`", end = "`", close = true, newline = true, not_in = [
+        "string",
+    ] },
+]
+scope_opt_in_language_servers = ["html-language-server", "java-language-server"]
+prettier_parser_name = "jsp"
+
+[overrides.string]
+completion_query_characters = ["-"]
+opt_into_language_servers = ["html-language-server"]
+
+[overrides.jsp_scriptlet]
+opt_into_language_servers = ["java-language-server"]
